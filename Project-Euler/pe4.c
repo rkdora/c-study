@@ -1,10 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+clock_t start;
 
 //3桁の数の積で表される回文数の最大値を求めよ。
+/*
+int get_digit(int n){
+  return log10(n) + 1;
+}
+*/
+int get_digit(int arg){
+  int digit = 0;
+  while (arg != 0) {
+    arg /= 10;
+    digit++;
+  }
+  return digit;
+}
+
+int power(int n, int m){
+  int ans = 1;
+  for (int i = 0; i < m; i++){
+    ans *= n;
+  }
+  return ans;
+}
 
 int kaibun_for_pe4(int n) {
-  int digit = get_digit_for_happy(n);
+  int digit = get_digit(n);
   int a[11] = {};
   int sum = 0;
   for (int i = 0; i < digit; i++) {
@@ -13,6 +38,15 @@ int kaibun_for_pe4(int n) {
   }
   return sum == n;
 }
+
+int max2(int x, int y){
+  if (x > y){
+    return x;
+  } else if (x < y){
+    return y;
+  }
+}
+
 
 void pe4(){
   int ans = 0;
@@ -30,6 +64,13 @@ void pe4(){
     }
   }
   printf("ans: %d * %d = %d\n", ans_i, ans_j, ans);
+}
+
+int main(void){
+  start = clock();
+  pe4();
+  printf("time : %ld[ms]\n", clock() - start);
+  return 0;
 }
 
 //ans: 913 * 993 = 906609

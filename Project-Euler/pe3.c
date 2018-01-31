@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
+clock_t start;
 
 //600851475143 の素因数のうち最大のものを求めよ
 void pe3(){
@@ -20,6 +23,13 @@ void pe3(){
   }
   ans = primes[count - 1];
   printf("%ld\n", ans);
+}
+
+int main(void){
+  start = clock();
+  pe3();
+  printf("time : %ld[ms]\n", clock() - start);
+  return 0;
 }
 
 //ans : 6857
