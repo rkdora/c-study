@@ -1279,8 +1279,6 @@ int hundred(int n){
   return (n / (0.01));
 }
 
-
-
 int main(void) {
     return 0;
 }
