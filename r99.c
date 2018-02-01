@@ -1174,10 +1174,10 @@ void pe3(){
 //hkimura の回答を改善しなさい
 int next_prime(int n) {
   n++;
-  if (even(n)) { // 問題 13
+  if (even(n)) {
     n++;
   }
-  for (; ! is_prime(n); n+=2) { // 問題 23
+  for (; ! is_prime(n); n+=2) {
     ;
   }
   return n;
@@ -1203,6 +1203,84 @@ int factor_integer_max(long int n) {
   }
   return max;
 }
+
+//110
+//問題48のint sum_of_digits(int n) をできるだけ、{} や変数を使わずに書け
+//悪ふざけ
+int saving(int n){
+  return sum_of_digits(n);
+}
+//正答
+int abc(int n) {
+  return n>0?n%10+sum_of_digits(n/10):0;
+}
+
+//111
+//n,m ≥ 0 とする。n * m と同じ計算をする関数
+int times(int n, int m){
+  int ans = 0;
+  while (m > 0) {
+    ans += n;
+    m--;
+  }
+  return ans;
+}
+//正答
+int times_1(int n, int m) {
+  if (m==0) {
+    return 0;
+  } else {
+    return n + times(n, m-1);
+  }
+}
+
+//112
+//++ と -- のみを使い、x + y と同じ計算をする関数
+int add(int x, int y){
+  int sum = 0;
+  for (; x > 0; x--) {
+    sum++;
+  }
+  for (; y > 0; y--) {
+    sum++;
+  }
+  return sum;
+}
+
+//113
+// + や * を使わず、n * 2 と同じ計算をする関数
+int doubles(int n){
+  int ans = 0;
+  for (int i = 2; i > 0; i--) {
+    ans -= n;
+  }
+  return ans / -1;
+}
+//シフト演算子を用いる
+int shift(int n){
+  return n<<1;
+}
+
+//114
+//+ や * を使わず,n * 10 と同じ計算をする関数
+int ten(int n){
+  return (n / (0.1));
+}
+//ko-sei案
+int ten_1(unsigned n){
+  unsigned b = n;
+  b <<= 10;
+  return b / 100;
+}
+
+//115
+//+ や * を使わず,n * 100 と同じ計算をする関数
+int hundred(int n){
+  return (n / (0.01));
+}
+
+
+
 int main(void) {
     return 0;
 }
